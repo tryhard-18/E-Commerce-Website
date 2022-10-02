@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="stylesheet" href="/css/resp.css">
+</head>
+
+<body>
+<div class="navbar">
+
+    <nav class="navigation max-width-1 m-auto">
+        <div class="nav-left">
+            <a th:href="@{/myOrders/{sno}(sno=${sno})}">
+                <span style="color: greenyellow;">Flashkart</span>
+            </a>
+            <div class="fifty">
+                <ul>
+                    <li><a th:href="@{/{sno}(sno=${sno})}">Home</a></li>
+<!--                    <li><a href="#">Products</a></li>-->
+                    <li><a th:href="@{/contact/{sno}(sno=${sno})}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <form action="" id="search">
+                <input id="searchInput" type="text" class="form-input" name="query" placeholder="Article Search" onchange="openPage()">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>
+
+
+
+<div class="contact-content font1 max-width-1 m-auto">
+    <div class="max-width-1 m-auto">
+        <h2>Feel Free to Contact</h2>
+        <form th:action="@{/contact/{sno}(sno=${sno})}" th:object="${contact}" class="contact-form" method="POST">
+            <div class="form-box">
+                <textarea th:field="*{concern}" cols="30" required rows="10" placeholder="Elaborate your concern" name="desc"></textarea>
+            </div>
+            <div class="form-box">
+                <button class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p class="text-footer">
+        Copyright &copy; 2021 - All rights reserved.
+    </p>
+</footer>
+
+<script>
+      function openPage() {
+  var search = document.getElementById('search');
+  var input = document.getElementById('searchInput');
+  if(input.value == "realme mobiles" || input.value == "realmemobiles")
+  search.action = '/real';
+  else if(input.value == "acer laptops" || input.value == "acerlaptops")
+  search.action = '/acer';
+}
+    </script>
+</body>
+
+</html>

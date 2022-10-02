@@ -1,0 +1,81 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Pacifico&display=swap'); */
+
+:root{
+    --font1: 'Pacifico', cursive;
+    --font2: 'Lobster Two', cursive;
+    --main-bg-color: rgb(231, 91, 91);
+}
+
+.container{
+    margin-top: 30px;
+    /* border: 2px solid red; */
+}
+
+.font1{
+    font-family: 'Pacifico', cursive;
+}
+
+.font2{
+    font-family:'Lobster Two', cursive;
+}
+
+.max-width-1{
+    max-width: 90vw;
+}
+
+.max-width-2{
+    max-width: 60vw;
+}
+
+.max-width-3{
+    max-width: 80vw;
+}
+
+.max-width-4{
+    max-width: 74vw;
+}
+
+.m-auto{
+    margin: auto;
+}
+
+.btn{
+    padding: 0px 15px;
+    border: 3px solid black;
+    border-radius: 4px;
+    font-family: var(--font1);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    outline: none;
+}
+
+.btn:hover{
+    color: white;
+    background-color: var(--main-bg-color);
+}
+
+.first:hover{
+    cursor: pointer;
+}
+
+.text-footer{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+    color: white;
+    background-color: black;
+    font-size: 17px;
+    /* margin: -40px 0px; */
+}
+
+
+@media screen and (max-width: 600px){
+    .fifty{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* border: 2px solid red; */
+    }
+  }

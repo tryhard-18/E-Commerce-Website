@@ -1,0 +1,49 @@
+.contact-content{
+    height: 90vh;
+    display: block;
+    margin-top: 32px;
+    padding: 9px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-content::after{
+    content: "";
+    /* background-image: url('../images/image1.png'); */
+    background: url('../images/contact.jpg') fixed center ;
+    background-size: cover;
+    position: absolute;
+    width: 100vw;
+    height: inherit;
+    opacity: 0.4;
+    top: 0px;
+    z-index: -1;
+}
+
+.form-box input, textarea{
+    width: 52vw;
+    padding: 0px 6px;
+    margin: 7px 0px;
+    font-size: 16px;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-family: var(--font1);
+    outline: none;
+}
+
+/* .nav-left{
+    width: 100vw;
+} */
+
+.nav-right{
+    text-align: center;
+}
+
+@media screen and (max-width: 400px){
+    .fifty{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }

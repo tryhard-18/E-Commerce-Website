@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/43a4458158.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/resp.css">
+    <link rel="stylesheet" href="/css/loginModal.css">
+    <link rel="stylesheet" href="/css/loginSignUpresp.css">
+    <link rel="stylesheet" href="/css/realme.css">
+    <link rel="stylesheet" href="/css/acerpredator.css">
+    <link rel="stylesheet" href="/css/realme7i.css">
+    <title>E-commerce</title>
+</head>
+
+<body>
+<div class="navbar">
+
+    <nav class="navigation h-nav-resp max-width-1 m-auto">
+        <!-- <div class="nav-left v-class-resp"> -->
+        <div class="nav-left">
+            <a class="sixty" th:href="@{/myOrders/{sno}(sno=${sno})}">
+                <span style="color: greenyellow;">MyOrders</span>
+            </a>
+            <div class="fifty v-class-resp">
+                <ul>
+                    <li><a th:href="@{/{sno}(sno=${sno})}">Home</a></li>
+<!--                    <li><a href="#2-section">Products</a></li>-->
+                    <li><a th:href="@{/contact/{sno}(sno=${sno})}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="thirty">
+                <form action="" id="search">
+                    <input style="display:none" th:value="${sno}" id="unique">
+                    <input id="searchInput" type="text" class="form-input" name="query" placeholder="Article Search"
+                           onchange="openPage()">
+                    <button class="btn">Search</button>
+                </form>
+            </div>
+
+            <div class="buttons v-class-resp">
+
+
+                <button class="btn" id="myBtn">Login</button>
+
+                <div id="myModal" class="modal">
+
+
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="eighty">
+                            <h1>Log in to Your Account</h1>
+
+                            <form action="/login" method="POST">
+                                <div class="box">
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="text" name="email" id="email" placeholder="Enter your email">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" name="password" id="password" placeholder="Enter your password">
+                                </div>
+                                <div class="hundred">
+                                    <input type="checkbox" name="myeligibility"><p class="ninety"> Keep me logged in for 30 days</p>
+                                </div>
+                                <button class="btn">Log In</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn" id="myBtn1">Sign Up</button>
+
+                <div id="myModal1" class="modal">
+
+                    <div class="modal-content" style="height: 575px;">
+                        <span class="close">&times;</span>
+                        <div class="eighty">
+                            <h1>Sign Up</h1>
+                            <small>Please fill in this form to create an account!</small>
+
+                            <form action="/signUp" method="POST">
+                                <div class="box">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" name="name" id="name" placeholder="Name">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="text" name="email" id="email" placeholder="Email">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" name="password" id="password" placeholder="Password">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+                                </div>
+                                <div class="hundred">
+                                    <input type="checkbox" name="myeligibility"><p class="ninety"> I accept the <span style="color: rgb(53, 53, 240);">Terms of Use</span> and <span style="color:rgb(53, 53, 240) ;">Privacy Policy</span></p>
+                                </div>
+                                <button class="btn">Sign Up</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="forty v-class-resp">
+                <a th:href="@{/cart/{sno}(sno=${sno})}"><img class="cart" src="/images/cart.png" alt="logo" width="30px" height="30px"></a>
+            </div>
+
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+
+        </div>
+    </nav>
+</div>
+</div>
+
+<div class="container">
+
+    <div class="mobiledetails max-width-1 m-auto">
+
+        <div class="aside-1">
+            <div class="phone-img">
+                <img alt="Realme 7i (Fusion Green, 64 GB)" src="https://rukminim1.flixcart.com/image/312/312/kfpq5jk0/mobile/x/9/e/realme-7i-rmx2103-original-imafw3xgjfuhhgxw.jpeg?q=70" id="productImg">
+                <div class="group-small-img">
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Realme 7i (Fusion Green, 64 GB)" src="https://rukminim1.flixcart.com/image/416/416/kfpq5jk0/mobile/x/9/e/realme-7i-rmx2103-original-imafw3xgjfuhhgxw.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Realme 7i (Fusion Green, 64 GB)" src="https://rukminim1.flixcart.com/image/416/416/kfyasnk0/mobile/n/e/b/realme-7i-rmx2103-original-imafwapekf2tzwrg.jpeg?q=70" >
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Realme 7i (Fusion Green, 64 GB)" src="https://rukminim1.flixcart.com/image/416/416/kfpq5jk0/mobile/x/9/e/realme-7i-rmx2103-original-imafw3xgwqfff9sc.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Realme 7i (Fusion Green, 64 GB)" src="https://rukminim1.flixcart.com/image/416/416/kfpq5jk0/mobile/n/e/b/realme-7i-rmx2103-original-imafw3xgvvqfupey.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Realme 7i (Fusion Green, 64 GB)" src="https://rukminim1.flixcart.com/image/416/416/kfpq5jk0/mobile/n/e/b/realme-7i-rmx2103-original-imafw3xggs4jgcfn.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Realme 7i (Fusion Green, 64 GB)" src="https://rukminim1.flixcart.com/image/416/416/kfpq5jk0/mobile/n/e/b/realme-7i-rmx2103-original-imafw3xgynz9xghh.jpeg?q=70">
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="buttons seventy">
+                <form th:action="@{/realme7i/{sno}(sno=${sno})}" method="POST" style="display: inline-block;">
+                    <button class="acerPredatorButton btn">Add to cart</button>
+                </form>
+<!--                <a href="/buy"><button class="btn realme7ibuttons">Buy</button></a>-->
+            </div>
+        </div>
+
+        <div class="specification aside-2">
+            <h2>Realme 7i (Fusion Green, 64 GB)</h2>
+            <div class="_3LWZlK">
+                <h3 style="display: inline-block;">4.4</h3>
+                <img style="width: 13px; height:13px; padding-top: 2px;"
+                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg==">
+            </div>
+            <span><span>3,86,235 Ratings&nbsp;</span><span>&amp;</span><span>&nbsp;26,127 Reviews</span></span>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>2 GB RAM | 32 GB ROM | Expandable Upto 256 GB</li>
+                    <li>16.51 cm (6.5 inch) HD+ Display</li>
+                    <li>13MP + 2MP | 5MP Front Camera</li>
+                    <li>5000 mAh Battery</li>
+                    <li>Mediatek Helio G35 Processor</li>
+                    <li>Brand Warranty of 1 Year Available for Mobile and 6 Months for Accessories</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p class="text-footer">
+        Copyright &copy; 2021 - All rights reserved.
+    </p>
+</footer>
+
+
+<script src="/js/realme7i.js"></script>
+</body>
+
+</html>
+

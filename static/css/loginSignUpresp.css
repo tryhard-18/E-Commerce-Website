@@ -1,0 +1,29 @@
+@media screen and (max-width: 1200px){
+.modal-content {
+    margin-top: 150px;
+}
+}
+
+
+@media screen and (max-width: 900px){
+.modal-content {
+    width: 60%;
+    margin-top: 150px;
+}
+}
+
+@media screen and (max-width: 600px){
+.modal-content {
+    width: 85%;
+}
+
+.box input{
+    font-size: 11px;
+}
+}
+
+@media screen and (max-width: 300px){
+.modal-content {
+   width: 90%;
+}
+}

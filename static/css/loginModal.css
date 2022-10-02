@@ -1,0 +1,98 @@
+/* The Modal (background) */
+.modal {
+    display: none; /*Hidden by default*/
+    /* display: block; */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+
+    text-align: center;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    /* width: 80%; Could be more or less, depending on screen size */
+    width: 40%;
+    position: relative;
+    top: -100px;
+    height: 500px;
+    border-radius: 10px;
+    
+
+  }
+
+.box input{
+    width: 80%;
+    outline: none;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 7px;
+    /* background: none; */
+    border: 2px solid black;
+    /* color:#ac9a9a; */
+} 
+
+.eighty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+    /* align-items: center; */
+    /* border: 2px solid red; */
+}
+
+.eighty h1{
+    font-size: 2rem;
+}
+
+.eighty form{
+    margin-top: 20px;
+}
+
+.ninety{
+    margin-left: 5px;
+}
+
+.hundred{
+    display: flex;
+    /* border: 2px solid red; */
+    margin: 15px auto;
+    width: 76%;
+    align-items: center;
+}
+
+.eighty form button{
+    width: 80%;
+    /* margin: 10px; */
+    font-size: 20px;
+    margin-left: 20px;
+    color: white;
+    background-color: rgb(100, 100, 245);
+}
+
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }

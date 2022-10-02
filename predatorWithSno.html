@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/43a4458158.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/resp.css">
+    <link rel="stylesheet" href="/css/loginModal.css">
+    <link rel="stylesheet" href="/css/loginSignUpresp.css">
+    <link rel="stylesheet" href="/css/realme.css">
+    <link rel="stylesheet" href="/css/acerpredator.css">
+    <link rel="stylesheet" href="/css/realme7i.css">
+    <title>E-commerce</title>
+</head>
+
+<body>
+<div class="navbar">
+
+    <nav class="navigation h-nav-resp max-width-1 m-auto">
+        <!-- <div class="nav-left v-class-resp"> -->
+        <div class="nav-left">
+            <a class="sixty" th:href="@{/myOrders/{sno}(sno=${sno})}">
+                <span style="color: greenyellow;">MyOrders</span>
+            </a>
+            <div class="fifty v-class-resp">
+                <ul>
+                    <li><a th:href="@{/{sno}(sno=${sno})}">Home</a></li>
+                    <li><a href="#2-section">Products</a></li>
+                    <li><a th:href="@{/contact/{sno}(sno=${sno})}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="thirty">
+                <input style="display:none" th:value="${sno}" id="unique">
+                <form action="" id="search">
+                    <input id="searchInput" type="text" class="form-input" name="query" placeholder="Article Search"
+                           onchange="openPage()">
+                    <button class="btn">Search</button>
+                </form>
+            </div>
+
+            <!-- <div class="buttons v-class-resp">
+              <a href="/login"><button class="btn">Login</button></a>
+              <button class="btn">Sign Up</button>s
+            </div> -->
+            <div class="buttons v-class-resp">
+
+
+                <button class="btn" id="myBtn">Login</button>
+
+                <div id="myModal" class="modal">
+
+
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="eighty">
+                            <h1>Log in to Your Account</h1>
+
+                            <form action="/login" method="POST">
+                                <div class="box">
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="text" name="email" id="email" placeholder="Enter your email">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" name="password" id="password" placeholder="Enter your password">
+                                </div>
+                                <div class="hundred">
+                                    <input type="checkbox" name="myeligibility"><p class="ninety"> Keep me logged in for 30 days</p>
+                                </div>
+                                <button class="btn">Log In</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn" id="myBtn1">Sign Up</button>
+
+                <div id="myModal1" class="modal">
+
+                    <div class="modal-content" style="height: 575px;">
+                        <span class="close">&times;</span>
+                        <div class="eighty">
+                            <h1>Sign Up</h1>
+                            <small>Please fill in this form to create an account!</small>
+
+                            <form action="/signUp" method="POST">
+                                <div class="box">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" name="name" id="name" placeholder="Name">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="text" name="email" id="email" placeholder="Email">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" name="password" id="password" placeholder="Password">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+                                </div>
+                                <div class="hundred">
+                                    <input type="checkbox" name="myeligibility"><p class="ninety"> I accept the <span style="color: rgb(53, 53, 240);">Terms of Use</span> and <span style="color:rgb(53, 53, 240) ;">Privacy Policy</span></p>
+                                </div>
+                                <button class="btn">Sign Up</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="forty v-class-resp">
+                <a th:href="@{/cart/{sno}(sno=${sno})}"><img class="cart" src="/images/cart.png" alt="logo" width="30px" height="30px"></a>
+            </div>
+
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+
+    <div class="mobiledetails max-width-1 m-auto">
+        <div class="aside-1">
+            <div class="phone-img">
+                <img style="width:25vw " alt="Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144 Hz) PH315-53-72E9 Gaming Laptop" src="https://rukminim1.flixcart.com/image/416/416/k9loccw0/computer/4/f/w/acer-na-gaming-laptop-original-imafrcpya8phvptc.jpeg?q=70" id="productImg">
+
+                <div class="group-small-img">
+
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144 Hz) PH315-53-72E9 Gaming Laptop" src="https://rukminim1.flixcart.com/image/416/416/k9loccw0/computer/4/f/w/acer-na-gaming-laptop-original-imafrcpya8phvptc.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144 Hz) PH315-53-72E9 Gaming Laptop" src="https://rukminim1.flixcart.com/image/416/416/k9loccw0/computer/4/f/w/acer-na-gaming-laptop-original-imafrcpyqgghmbr2.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144 Hz) PH315-53-72E9 Gaming Laptop" src="https://rukminim1.flixcart.com/image/416/416/k9loccw0/computer/4/f/w/acer-na-gaming-laptop-original-imafrcpyh3p3ehhe.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144 Hz) PH315-53-72E9 Gaming Laptop" src="https://rukminim1.flixcart.com/image/416/416/k9loccw0/computer/4/f/w/acer-na-gaming-laptop-original-imafrcpyazve9cbw.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144 Hz) PH315-53-72E9 Gaming Laptop" src="https://rukminim1.flixcart.com/image/416/416/k9loccw0/computer/4/f/w/acer-na-gaming-laptop-original-imafrcpfdhazwgyr.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144 Hz) PH315-53-72E9 Gaming Laptop" src="https://rukminim1.flixcart.com/image/416/416/k9loccw0/computer/4/f/w/acer-na-gaming-laptop-original-imafrcpyxatgabq2.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144 Hz) PH315-53-72E9 Gaming Laptop" src="https://rukminim1.flixcart.com/image/416/416/k9loccw0/computer/4/f/w/acer-na-gaming-laptop-original-imafrcpyrrrz2467.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144 Hz) PH315-53-72E9 Gaming Laptop" src="https://rukminim1.flixcart.com/image/416/416/ka1e6q80/computer/4/f/w/acer-na-gaming-laptop-original-imafrpf3zsaejwsm.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144 Hz) PH315-53-72E9 Gaming Laptop" src="https://rukminim1.flixcart.com/image/416/416/ka1e6q80/computer/4/f/w/acer-na-gaming-laptop-original-imafrpf3a2kxeczm.jpeg?q=70">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144 Hz) PH315-53-72E9 Gaming Laptop" src="https://rukminim1.flixcart.com/image/416/416/ka1e6q80/computer/4/f/w/acer-na-gaming-laptop-original-imafrpf3agsf38vj.jpeg?q=70">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="buttons seventy">
+                <form th:action="@{/acerpredator/{sno}(sno=${sno})}" method="POST" style="display: inline-block;">
+                    <button class="acerPredatorButton btn">Add to cart</button>
+                </form>
+<!--                <a href="/buy"><button class="acerPredatorButton btn">Buy</button></a>-->
+            </div>
+        </div>
+
+        <div class="specification aside-2">
+            <h2>Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB
+                Graphics/N...</h2>
+            <div class="_3LWZlK">
+                <h3 style="display: inline-block;">4.4</h3>
+                <img style="width: 13px; height:13px; padding-top: 2px;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg==">
+            </div>
+            <span><span>3,86,235 Ratings&nbsp;</span><span>&amp;</span><span>&nbsp;26,127 Reviews</span></span>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+<!--                    <li th:text="${product.productType}"></li>-->
+<!--                    <li th:text="${product.ram}"></li>-->
+<!--                    <li th:text="${product.processor}"></li>-->
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+            <div style="margin-top: 10px;">
+                <ul class="_1xgFaf">
+                    <li>Intel Core i7 Processor (10th Gen)</li>
+                    <li>16 GB DDR4 RAM</li>
+                    <li>64 bit Windows 10 Operating System</li>
+                    <li>1 TB HDD|256 GB SSD</li>
+                    <li>39.62 cm (15.6 inch) Display</li>
+                    <li>PredatorSense, Acer Product Registration, Acer Care Center, Acer Collection, Quick Access</li>
+                    <li>1 Year International Travelers Warranty (ITW)</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p class="text-footer">
+        Copyright &copy; 2021 - All rights reserved.
+    </p>
+</footer>
+
+<script src="/js/acerPredator.js"></script>
+</body>
+
+</html>
+
+

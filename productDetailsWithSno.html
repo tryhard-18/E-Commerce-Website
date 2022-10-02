@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <script src="https://kit.fontawesome.com/43a4458158.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/resp.css">
+    <link rel="stylesheet" href="/css/loginModal.css">
+    <link rel="stylesheet" href="/css/loginSignUpresp.css">
+    <link rel="stylesheet" href="/css/realme.css">
+    <link rel="stylesheet" href="/css/acerpredator.css">
+
+    <style>
+    /* .aside-1{
+      border: 2px solid red;
+    } */
+    .aside-2{
+      /* width: 50%; */
+      /* border: 2px solid red; */
+      padding-top: 100px;
+      height: 50%;
+    }
+
+    .group-small-img{
+      width: 50%;
+    }
+    @media screen and (max-width: 850px){
+      .aside-1{
+        height: 76vw;
+      }
+      .group-small-img{
+      width: 90%;
+    }
+    .aside-2{
+      padding-top: 0px;
+    }
+    }
+
+    @media screen and (max-width: 350px){
+      .aside-1{
+        height: 90vw;
+      }
+    }
+  </style>
+    <title>Document</title>
+</head>
+
+<body>
+<div class="navbar">
+
+    <nav class="navigation h-nav-resp max-width-1 m-auto">
+        <div class="nav-left">
+            <a class="sixty" th:href="@{/myOrders/{sno}(sno=${sno})}">
+                <span style="color: greenyellow;">MyOrders</span>
+            </a>
+            <div class="fifty v-class-resp">
+                <ul>
+                    <li><a th:href="@{/{sno}(sno=${sno})}">Home</a></li>
+<!--                    <li><a href="#2-section">Products</a></li>-->
+                    <li><a th:href="@{/contact/{sno}(sno=${sno})}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="thirty">
+                <input style="display:none" th:value="${sno}" id="unique">
+                <form action="" id="search">
+                    <input id="searchInput" type="text" class="form-input" name="query" placeholder="Article Search" onchange="openPage()">
+                    <button class="btn">Search</button>
+                </form>
+            </div>
+
+            <div class="buttons v-class-resp">
+
+
+                <button class="btn" id="myBtn">Login</button>
+
+                <div id="myModal" class="modal">
+
+
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="eighty">
+                            <h1>Log in to Your Account</h1>
+
+                            <form action="/login" method="POST">
+                                <div class="box">
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="text" name="email" id="email" placeholder="Enter your email">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" name="password" id="password" placeholder="Enter your password">
+                                </div>
+                                <div class="hundred">
+                                    <input type="checkbox" name="myeligibility"><p class="ninety"> Keep me logged in for 30 days</p>
+                                </div>
+                                <button class="btn">Log In</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn" id="myBtn1">Sign Up</button>
+
+                <div id="myModal1" class="modal">
+
+                    <div class="modal-content" style="height: 575px;">
+                        <span class="close">&times;</span>
+                        <div class="eighty">
+                            <h1>Sign Up</h1>
+                            <small>Please fill in this form to create an account!</small>
+
+                            <form action="/signUp" method="POST">
+                                <div class="box">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" name="name" id="name" placeholder="Name">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="text" name="email" id="email" placeholder="Email">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" name="password" id="password" placeholder="Password">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+                                </div>
+                                <div class="hundred">
+                                    <input type="checkbox" name="myeligibility"><p class="ninety"> I accept the <span style="color: rgb(53, 53, 240);">Terms of Use</span> and <span style="color:rgb(53, 53, 240) ;">Privacy Policy</span></p>
+                                </div>
+                                <button class="btn">Sign Up</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="forty v-class-resp">
+                <a th:href="@{/cart/{sno}(sno=${sno})}"><img class="cart" src="/images/cart.png" alt="logo" width="30px" height="30px"></a>
+            </div>
+
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+
+    <div class="mobiledetails max-width-1 m-auto">
+        <div class="aside-1">
+            <div class="phone-img">
+                <img style="width:25vw " alt="" src="https://rukminim1.flixcart.com/image/880/1056/khdqnbk0/t-shirt/r/u/0/m-fc4173-fastcolors-original-imafxettxhthw8ye.jpeg?q=50" id="productImg">
+
+                <div class="group-small-img">
+
+                    <div class="small-img">
+                        <img class="small-img-1" alt="" src="https://rukminim1.flixcart.com/image/880/1056/khdqnbk0/t-shirt/r/u/0/m-fc4173-fastcolors-original-imafxettxhthw8ye.jpeg?q=50">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="" src="https://rukminim1.flixcart.com/image/880/1056/khdqnbk0/t-shirt/a/0/7/m-fc4173-fastcolors-original-imafxett2dgjsvq9.jpeg?q=50">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="" src="https://rukminim1.flixcart.com/image/880/1056/khdqnbk0/t-shirt/g/1/n/m-fc4173-fastcolors-original-imafxettzgddeaky.jpeg?q=50">
+                    </div>
+                    <div class="small-img">
+                        <img class="small-img-1" alt="" src="https://rukminim1.flixcart.com/image/880/1056/khdqnbk0/t-shirt/k/h/y/m-fc4173-fastcolors-original-imafxettdytzafzj.jpeg?q=50">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="buttons seventy">
+                <!-- <a href="/cart"><button class="acerPredatorButton btn">Add to cart</button></a> -->
+                <form th:action="@{/productdetails/{sno}(sno=${sno})}" method="POST" style="display: inline-block;">
+                    <button class="acerPredatorButton btn">Add to cart</button>
+                </form>
+<!--                <a href="/buy"><button class="acerPredatorButton btn">Buy</button></a>-->
+            </div>
+        </div>
+
+        <div class="specification aside-2 ">
+            <h2>Color Block Men Round Neck Black T-Shirt</h2>
+            <div class="_3LWZlK">
+                <h3 style="display: inline-block;">4.4</h3>
+                <img style="width: 13px; height:13px; padding-top: 2px;" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg==">
+            </div>
+            <span><span>3,86,235 Ratings&nbsp;</span><span>&amp;</span><span>&nbsp;26,127 Reviews</span></span>
+            <div class="price">
+                <div class="_30jeq3_1_WHN1">₹500</div>
+                <div>
+                    <div class="_3I9_wc_27UcVY">₹550</div>
+                    <div class="_3Ay6Sb"><span>14% off</span></div>
+                </div>
+            </div>
+            <div style="display: block;">
+                <label for="size"><strong> Size: </strong></label>
+                <select style="margin: 8px;" name="size" id="size">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
+                </select>
+            </div>
+            <strong> Quantity:</strong><input style="margin: 8px; width: 30px;" type="number" name="" id="" value="1">
+            <div style="margin-top: 10px;">
+                <div>
+                    <h2>Product Details</h2>
+                    <p>Durable stitch and Quality finish. This T-shirt is stitched for higher durability using the best technology in the industry. Manufactured from Cotton fabric, this T-shirt is very smooth and soft making it comfortable to wear during all Seasons. This fabric is Durable, Odorless and passed through Anti fading treatment which ensures the T-shirt color to be intact even after repeated washes.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="section-3">
+    <h1 class="max-width-4 m-auto">Similar Products</h1>
+    <div class="latest max-width-3 m-auto">
+
+        <div class="latestFeatured">
+
+            <img src="/images/product-1.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-2.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-3.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-6.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-6.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-6.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-6.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-6.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p class="text-footer">
+        Copyright &copy; 2021 - All rights reserved.
+    </p>
+</footer>
+<script src="/js/acerPredator.js"></script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,801 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <script src="https://kit.fontawesome.com/43a4458158.js" crossorigin="anonymous"></script>-->
+<!--    <link rel="stylesheet" href="/css/utils.css">-->
+<!--    <link rel="stylesheet" href="/css/style.css">-->
+<!--    <link rel="stylesheet" href="/css/resp.css">-->
+<!--    <link rel="stylesheet" href="/css/loginModal.css">-->
+<!--    <link rel="stylesheet" href="/css/loginSignUpresp.css">-->
+<!--    <title>E-commerce</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--<div class="navbar">-->
+
+<!--    <nav class="navigation h-nav-resp max-width-1 m-auto">-->
+<!--        &lt;!&ndash; <div class="nav-left v-class-resp"> &ndash;&gt;-->
+<!--        <div class="nav-left">-->
+<!--            <a class="sixty" href="/">-->
+<!--                <span style="color: greenyellow;">Flashkart</span>-->
+<!--            </a>-->
+<!--            <div class="fifty v-class-resp">-->
+<!--                <ul>-->
+<!--                    <li><a href="/">Home</a></li>-->
+<!--                    <li><a href="#2-section">Products</a></li>-->
+<!--                    <li><a href="/contact">Contact</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="nav-right">-->
+<!--            <div class="thirty">-->
+<!--                <form action="" id="search">-->
+<!--                    <input id="searchInput" type="text" class="form-input" name="query" placeholder="Article Search" onchange="openPage()">-->
+<!--                    <button class="btn">Search</button>-->
+<!--                </form>-->
+<!--            </div>-->
+
+
+
+<!--            <div class="buttons v-class-resp">-->
+
+<!--                <button class="btn" id="myBtn">Login</button>-->
+<!--                &lt;!&ndash; The Modal &ndash;&gt;-->
+<!--                <div id="myModal" class="modal">-->
+
+
+<!--                    <div class="modal-content">-->
+<!--                        <span class="close">&times;</span>-->
+<!--                        <div class="eighty">-->
+<!--                            <h1>Log in to Your Account</h1>-->
+<!--                            &lt;!&ndash; <p>Some text in the Modal..</p> &ndash;&gt;-->
+<!--                            <form action="/login" method="POST">-->
+<!--                                <div class="box">-->
+<!--                                    <i class="fa fa-envelope"></i>-->
+<!--                                    <input type="text" required name="email" id="email" placeholder="Enter your email">-->
+<!--                                </div>-->
+<!--                                <div class="box">-->
+<!--                                    <i class="fa fa-key"></i>-->
+<!--                                    <input type="password" required name="password" id="password" placeholder="Enter your password">-->
+<!--                                </div>-->
+<!--                                <div class="hundred">-->
+<!--                                    <input type="checkbox" name="myeligibility"><p class="ninety"> Keep me logged in for 30 days</p>-->
+<!--                                </div>-->
+<!--                                <button class="btn">Log In</button>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <button class="btn" id="myBtn1">Sign Up</button>-->
+<!--                &lt;!&ndash; The Modal &ndash;&gt;-->
+<!--                <div id="myModal1" class="modal">-->
+<!--                    &lt;!&ndash; Modal content &ndash;&gt;-->
+<!--                    <div class="modal-content" style="height: 575px;">-->
+<!--                        <span class="close">&times;</span>-->
+<!--                        <div class="eighty">-->
+<!--                            <h1>Sign Up</h1>-->
+<!--                            <small>Please fill in this form to create an account!</small>-->
+<!--                            &lt;!&ndash; <p>Some text in the Modal..</p> &ndash;&gt;-->
+<!--                            <form action="/signUp" method="POST">-->
+<!--                                <div class="box">-->
+<!--                                    <i class="fa fa-user"></i>-->
+<!--                                    <input type="text" required name="name" id="name" placeholder="Name">-->
+<!--                                </div>-->
+<!--                                <div class="box">-->
+<!--                                    <i class="fa fa-envelope"></i>-->
+<!--                                    <input type="text" required name="email" id="email" placeholder="Email">-->
+<!--                                </div>-->
+<!--                                <div class="box">-->
+<!--                                    <i class="fa fa-key"></i>-->
+<!--                                    <input type="password" required name="password" id="password" placeholder="Password">-->
+<!--                                </div>-->
+<!--                                <div class="box">-->
+<!--                                    <i class="fa fa-key"></i>-->
+<!--                                    <input type="password" required name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">-->
+<!--                                </div>-->
+<!--                                <div class="hundred">-->
+<!--                                    <input type="checkbox" name="myeligibility"><p class="ninety"> I accept the <span style="color: rgb(53, 53, 240);">Terms of Use</span> and <span style="color:rgb(53, 53, 240) ;">Privacy Policy</span></p>-->
+<!--                                </div>-->
+<!--                                <button class="btn">Sign Up</button>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+
+<!--            <div class="forty v-class-resp">-->
+<!--                <a href="/cart" ><img class="cart" src="/images/cart.png" alt="logo" width="30px" height="30px"></a>-->
+<!--            </div>-->
+
+<!--            <div class="burger">-->
+<!--                <div class="line"></div>-->
+<!--                <div class="line"></div>-->
+<!--                <div class="line"></div>-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--    </nav>-->
+<!--</div>-->
+
+<!--<div class="section-1 max-width-2">-->
+<!--    <div>-->
+<!--        <img id="cat-1" src="/images/category-1.jpg" alt="">-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <img id="cat-2" src="/images/category-2.jpg" alt="">-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <img id="cat-3" src="/images/category-3.jpg" alt="">-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div class="slideshow-container">-->
+
+<!--    <div class="mySlides fade">-->
+<!--        <div class="numbertext">1 / 3</div>-->
+<!--        <img src="https://source.unsplash.com/1600x900/?nature,water" style="width:100%; height: 100%;">-->
+<!--        <div class="text">Caption Text</div>-->
+<!--    </div>-->
+
+<!--    <div class="mySlides fade">-->
+<!--        <div class="numbertext">2 / 3</div>-->
+<!--        <img src="https://source.unsplash.com/1600x900/?code,technology" style="width:100%; height: 100%;">-->
+<!--        <div class="text">Caption Two</div>-->
+<!--    </div>-->
+
+<!--    <div class="mySlides fade">-->
+<!--        <div class="numbertext">3 / 3</div>-->
+<!--        <img src="https://source.unsplash.com/1600x900/?javascript,html" style="width:100%; height: 100%;">-->
+<!--        <div class="text">Caption Three</div>-->
+<!--    </div>-->
+
+<!--    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>-->
+<!--    <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
+<!--</div>-->
+<!--<br>-->
+
+<!--<div style="text-align:center">-->
+<!--    <span class="dot" onclick="currentSlide(1)"></span>-->
+<!--    <span class="dot" onclick="currentSlide(2)"></span>-->
+<!--    <span class="dot" onclick="currentSlide(3)"></span>-->
+<!--</div>-->
+
+<!--<div id="2-section" class="section-2">-->
+<!--    <h1 style="text-align: center;">Featured Products</h1>-->
+<!--    <div class="featured max-width-1">-->
+
+<!--        <div>-->
+<!--            <a href="/productdetails"><img alt="" src="https://rukminim1.flixcart.com/image/880/1056/khdqnbk0/t-shirt/r/u/0/m-fc4173-fastcolors-original-imafxettxhthw8ye.jpeg?q=50"></a>-->
+<!--            <div class="aboutFeatured">-->
+<!--                <p>Red products</p>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$50</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div>-->
+<!--            <img src="/images/product-2.jpg" alt="">-->
+<!--            <div class="aboutFeatured">-->
+<!--                <p>Red products</p>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$50</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div>-->
+<!--            <img src="/images/product-3.jpg" alt="">-->
+<!--            <div class="aboutFeatured">-->
+<!--                <p>Red products</p>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$50</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div>-->
+<!--            <img src="/images/product-6.jpg" alt="">-->
+<!--            <div class="aboutFeatured">-->
+<!--                <p>Red products</p>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$50</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div class="section-3">-->
+<!--    <h1 style="text-align: center;">Latest Products</h1>-->
+<!--    <div class="latest max-width-3 m-auto">-->
+
+<!--        <div class="latestFeatured">-->
+<!--            <img src="/images/product-1.jpg" alt="">-->
+<!--            <div>-->
+<!--                <p>Red products</p>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$50</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="latestFeatured">-->
+<!--            <img src="/images/product-2.jpg" alt="">-->
+<!--            <div>-->
+<!--                <p>Red products</p>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$50</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="latestFeatured">-->
+<!--            <img src="/images/product-3.jpg" alt="">-->
+<!--            <div>-->
+<!--                <p>Red products</p>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$50</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="latestFeatured">-->
+<!--            <img src="/images/product-6.jpg" alt="">-->
+<!--            <div>-->
+<!--                <p>Red products</p>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$50</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="latestFeatured">-->
+<!--            <img src="/images/product-6.jpg" alt="">-->
+<!--            <div>-->
+<!--                <p>Red products</p>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$50</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="latestFeatured">-->
+<!--            <img src="/images/product-6.jpg" alt="">-->
+<!--            <div>-->
+<!--                <p>Red products</p>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$50</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="latestFeatured">-->
+<!--            <img src="/images/product-6.jpg" alt="">-->
+<!--            <div>-->
+<!--                <p>Red products</p>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$50</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="latestFeatured">-->
+<!--            <img src="/images/product-6.jpg" alt="">-->
+<!--            <div>-->
+<!--                <p>Red products</p>-->
+<!--                <div class="rating">-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star"></i>-->
+<!--                    <i class="fa fa-star-o"></i>-->
+<!--                </div>-->
+<!--                <p>$50</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div class="section-4">-->
+
+<!--    <div class="sub-section-4 max-width-2">-->
+<!--        <div>-->
+<!--            <img id="band" src="/images/exclusive.png" alt="">-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <h1>Smart Band</h1>-->
+<!--            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos porro ratione ea unde fuga enim quia nihil-->
+<!--                est, laboriosam saepe culpa ipsum accusamus, pariatur voluptas doloremque impedit harum sit quibusdam.</p>-->
+<!--            <a href="/buy"><button class="btn">Buy Now</button></a>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</div>-->
+<!--<footer>-->
+<!--    <p class="text-footer" style="margin: -49px 0px;">-->
+<!--        Copyright &copy; 2021 - All rights reserved.-->
+<!--    </p>-->
+<!--</footer>-->
+
+<!--<script src="/js/app.js"></script>-->
+
+<!--</body>-->
+
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/43a4458158.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/resp.css">
+    <link rel="stylesheet" href="/css/loginModal.css">
+    <link rel="stylesheet" href="/css/loginSignUpresp.css">
+    <title>E-commerce</title>
+</head>
+
+<body>
+<div class="navbar">
+
+    <nav class="navigation h-nav-resp max-width-1 m-auto">
+        <!-- <div class="nav-left v-class-resp"> -->
+        <div class="nav-left">
+            <a class="sixty" href="/">
+                <span style="color: greenyellow;">Flashkart</span>
+            </a>
+            <div class="fifty v-class-resp">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#2-section">Products</a></li>
+                    <li><a style="pointer-events: none; color:grey" href="/">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="thirty">
+                <form action="" id="search">
+                    <input style="pointer-events: none;" id="searchInput" type="text" class="form-input" name="query" placeholder="Article Search" onchange="openPage()">
+                    <button style="pointer-events: none; background-color:grey" class="btn">Search</button>
+                </form>
+            </div>
+
+
+
+            <div class="buttons v-class-resp">
+
+                <button class="btn" id="myBtn">Login</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="eighty">
+                            <h1>Log in to Your Account</h1>
+                            <!-- <p>Some text in the Modal..</p> -->
+                            <form action="/login" method="POST">
+                                <div class="box">
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="text" required name="email" id="email" placeholder="Enter your email">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" required name="password" id="password" placeholder="Enter your password">
+                                </div>
+                                <div class="hundred">
+                                    <input type="checkbox" name="myeligibility"><p class="ninety"> Keep me logged in for 30 days</p>
+                                </div>
+                                <button class="btn">Log In</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn" id="myBtn1">Sign Up</button>
+                <!-- The Modal -->
+                <div id="myModal1" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content" style="height: 575px;">
+                        <span class="close">&times;</span>
+                        <div class="eighty">
+                            <h1>Sign Up</h1>
+                            <small>Please fill in this form to create an account!</small>
+                            <!-- <p>Some text in the Modal..</p> -->
+                            <form action="/signUp" method="POST">
+                                <div class="box">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" required name="name" id="name" placeholder="Name">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="text" required name="email" id="email" placeholder="Email">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" required name="password" id="password" placeholder="Password">
+                                </div>
+                                <div class="box">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" required name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+                                </div>
+                                <div class="hundred">
+                                    <input type="checkbox" name="myeligibility"><p class="ninety"> I accept the <span style="color: rgb(53, 53, 240);">Terms of Use</span> and <span style="color:rgb(53, 53, 240) ;">Privacy Policy</span></p>
+                                </div>
+                                <button class="btn">Sign Up</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="forty v-class-resp">
+                <a style="pointer-events: none;" href="/" ><img style="background-color:#948989" class="cart" src="/images/cart.png" alt="logo" width="30px" height="30px"></a>
+            </div>
+
+            <div class="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+
+        </div>
+    </nav>
+</div>
+
+<div class="section-1 max-width-2">
+    <div>
+        <img id="cat-1" src="/images/category-1.jpg" alt="">
+    </div>
+    <div>
+        <img id="cat-2" src="/images/category-2.jpg" alt="">
+    </div>
+    <div>
+        <img id="cat-3" src="/images/category-3.jpg" alt="">
+    </div>
+</div>
+
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="https://source.unsplash.com/1600x900/?nature,water" style="width:100%; height: 100%;">
+        <div class="text">Caption Text</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="https://source.unsplash.com/1600x900/?code,technology" style="width:100%; height: 100%;">
+        <div class="text">Caption Two</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="https://source.unsplash.com/1600x900/?javascript,html" style="width:100%; height: 100%;">
+        <div class="text">Caption Three</div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<div id="2-section" class="section-2">
+    <h1 style="text-align: center;">Featured Products</h1>
+    <div class="featured max-width-1">
+
+        <div>
+            <img src="https://rukminim1.flixcart.com/image/880/1056/khdqnbk0/t-shirt/r/u/0/m-fc4173-fastcolors-original-imafxettxhthw8ye.jpeg?q=50" alt="">
+            <div class="aboutFeatured">
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div>
+            <img src="/images/product-2.jpg" alt="">
+            <div class="aboutFeatured">
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div>
+            <img src="/images/product-3.jpg" alt="">
+            <div class="aboutFeatured">
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div>
+            <img src="/images/product-6.jpg" alt="">
+            <div class="aboutFeatured">
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="section-3">
+    <h1 style="text-align: center;">Latest Products</h1>
+    <div class="latest max-width-3 m-auto">
+
+        <div class="latestFeatured">
+            <img src="/images/product-1.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-2.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-3.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-6.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-6.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-6.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-6.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+        <div class="latestFeatured">
+            <img src="/images/product-6.jpg" alt="">
+            <div>
+                <p>Red products</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$50</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="section-4">
+
+    <div class="sub-section-4 max-width-2">
+        <div>
+            <img id="band" src="/images/exclusive.png" alt="">
+        </div>
+        <div>
+            <h1>Smart Band</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos porro ratione ea unde fuga enim quia nihil
+                est, laboriosam saepe culpa ipsum accusamus, pariatur voluptas doloremque impedit harum sit quibusdam.</p>
+            <a style="pointer-events: none;" href="/buy"><button class="btn">Buy Now</button></a>
+        </div>
+    </div>
+
+</div>
+<footer>
+    <p class="text-footer" style="margin: -49px 0px;">
+        Copyright &copy; 2021 - All rights reserved.
+    </p>
+</footer>
+
+<script src="/js/app.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

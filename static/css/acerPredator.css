@@ -1,0 +1,95 @@
+.mobiledetails{
+    display: flex;
+}
+
+.aside-1{
+    width: 40%;
+    height: 42vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* border: 2px solid red; */
+    position:sticky;
+    top: 10px;
+    margin-top: 25px;
+}
+
+.phone-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid black;
+}
+
+.phone-img img{
+    /* height: 500px; */
+    /* height: 400px; */
+    height: 25vw;
+    /* width: 4vw; */
+    margin-bottom: 5px;
+}
+
+.group-small-img{
+    display: flex;
+    justify-content: space-between;
+    overflow-x:auto;
+    width: 80%;
+}
+
+.small-img{
+    border: 1px solid black;
+    margin: 2px;
+    /* width: 100%; */
+    /* height: 70px; */
+    width: 70px;
+    height: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.small-img:hover{
+    cursor: pointer;
+}
+
+.small-img img{
+    max-height: 60px;  
+    max-width: 60px;
+
+}
+
+/* #upperLower{
+    height: 200px;
+    width: 200px;
+} */
+
+.aside-2{
+    width: 60%;
+    /* border: 2px solid black; */
+}
+
+@media screen and (max-width: 800px){
+    .small-img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .small-img img{
+        max-width: 45px;
+        max-height: 42px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .seventy{
+        width: 35vw;
+    }
+    
+    .acerPredatorButton{
+        width: 35vw;
+        margin-bottom: 5px;
+    }
+    }

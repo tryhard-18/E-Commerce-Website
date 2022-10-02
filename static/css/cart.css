@@ -1,0 +1,60 @@
+#cart-page{
+    margin: 20px auto;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+th{
+    text-align: left;
+    padding: 5px;
+    color: white;
+    background-color: #ff523b;
+    font-weight: normal;
+}
+
+td{
+    padding: 10px 5px;
+}
+
+td input{
+    height: 30px;
+    width: 40px;
+    padding: 5px;
+}
+
+.cart-info a{
+    color: #ff523b;
+}
+
+.cart-info img{
+    height: 110px;
+    width: 130px;
+    margin-right: 10px;
+}
+
+.total-amount{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total-amount table{
+    border-top: 2px solid #ff523b;
+    max-width: 335px; 
+}
+
+td:last-child{
+    text-align: right;
+}
+
+th:last-child{
+    text-align: right;
+}

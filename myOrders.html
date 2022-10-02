@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/43a4458158.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/resp.css">
+    <link rel="stylesheet" href="/css/loginModal.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/realme.css">
+    <link rel="stylesheet" href="/css/acerpredator.css">
+
+
+    <title>E-commerce</title>
+    <style>
+      /* @media screen and (max-width: 500px){
+          .max-width-3{
+              max-width: 90vw;
+          }
+      } */
+      @media screen and (max-width: 500px){
+          .max-width-3{
+              max-width: 100vw;
+          }
+      }
+      @media screen and (max-width: 1280px){
+    .fifty{
+      /* width: 100%; */
+      display: flex;
+      /* align-items: center; */
+      /* justify-content: center; */
+    }
+  }
+
+  </style>
+</head>
+
+<body>
+<div class="navbar">
+
+    <nav class="navigation h-nav-resp max-width-1 m-auto">
+        <div class="nav-left">
+            <a class="sixty" th:href="@{/myOrders/{sno}(sno=${sno})}">
+                <span style="color: greenyellow;">MyOrders</span>
+            </a>
+            <div class="fifty v-class-resp">
+                <ul>
+                    <li><a th:href="@{/{sno}(sno=${sno})}">Home</a></li>
+<!--                    <li><a href="#2-section">Products</a></li>-->
+                    <li><a th:href="@{/contact/{sno}(sno=${sno})}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<div class="container my-3 max-width-3" style="margin: 20px auto;">
+    <h1>My Orders</h1>
+
+
+    <div class="alert alert-dark" role="alert" th:if="${orderStats.size()==0}">
+        <h2 style="margin-top: 20px;">Nothing Ordered yet!!</h2>
+
+    </div>
+
+    <table class="table" id="cart-page" th:if="${orderStats.size()!=0}">
+        <thead>
+        <tr>
+            <th scope="col">SNo</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="orderStat, iStat: ${orderStats}">
+            <td scope="row" th:text="${iStat.index+1}"></td>
+
+            <!--            {% if todo.title == "Color Block Men Round Neck Black T-Shirt" %}-->
+            <td class="cart-info" th:if="${orderStat.title=='Color Block Men Round Neck Black T-Shirt'}">
+                <div class="cart-info">
+                    <img style="height: 100px; width:100px; background-image:url(https://rukminim1.flixcart.com/image/128/128/khdqnbk0/t-shirt/r/u/0/m-fc4173-fastcolors-original-imafxettxhthw8ye.jpeg?q=70)">
+                    <div>
+                        <p>Color Block Men Round Neck Black T-Shirt</p>
+                        <span>₹499</span> <small style="margin:0px 2px;" class="_3I9_wc_27UcVY">₹549</small><small>14% off</small>
+                    </div>
+                </div>
+            </td>
+
+            <!--            {% elif todo.title == "Realme 7i (Fusion Green, 64 GB)" %}-->
+            <td class="cart-info" th:if="${orderStat.title=='Realme 7i (Fusion Green, 64 GB)'}">
+                <div class="cart-info">
+                    <img style="height: 100px; width:50px;" alt="Realme 7i (Fusion Green, 64 GB)" src="https://rukminim1.flixcart.com/image/312/312/kfpq5jk0/mobile/x/9/e/realme-7i-rmx2103-original-imafw3xgjfuhhgxw.jpeg?q=70" id="productImg">
+                    <div>
+                        <p>Realme 7i (Fusion Green, 64 GB)</p>
+                        <span>₹7,499</span> <small style="margin:0px 2px;" class="_3I9_wc_27UcVY">₹8,999</small><small>14% off</small>
+                    </div>
+                </div>
+            </td>
+
+            <!--            {% else %}-->
+            <td class="cart-info" th:if="${orderStat.title=='Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/N...'}">
+                <div class="cart-info">
+                    <img alt="Acer Predator Helios 300 Core i7 10th Gen - (16 GB/1 TB HDD/256 GB SSD/Windows 10 Home/6 GB Graphics/NVIDIA GeForce RTX 2060/144 Hz) PH315-53-72E9 Gaming Laptop" src="https://rukminim1.flixcart.com/image/416/416/k9loccw0/computer/4/f/w/acer-na-gaming-laptop-original-imafrcpya8phvptc.jpeg?q=70" id="productImg">
+                    <div>
+                        <p>Acer Predator Helios 300 Core i7....</p>
+                        <span>₹67,499</span> <small style="margin:0px 2px;" class="_3I9_wc_27UcVY">₹78,999</small><small>14% off</small>
+                    </div>
+                </div>
+            </td>
+
+            <td th:text="${orderStat.price}"></td>
+        </tr>
+
+
+
+
+        </tbody>
+    </table>
+
+
+</div>
+
+<footer>
+    <p class="text-footer">
+        Copyright &copy; 2021 - All rights reserved.
+    </p>
+</footer>
+
+</body>
+
+</html>

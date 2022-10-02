@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="stylesheet" href="/css/resp.css">
+</head>
+
+<body>
+<div class="navbar">
+
+    <nav class="navigation h-nav-resp max-width-1 m-auto">
+        <div class="nav-left">
+            <a class="sixty" th:href="@{/myOrders/{sno}(sno=${sno})}">
+                <span style="color: greenyellow;">MyOrders</span>
+            </a>
+            <div class="fifty">
+                <ul>
+                    <li><a th:href="@{/{sno}(sno=${sno})}">Home</a></li>
+<!--                    <li><a href="#2-section">Products</a></li>-->
+                    <li><a th:href="@{/contact/{sno}(sno=${sno})}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+<!--        <div class="nav-right">-->
+<!--            <div class="thirty">-->
+<!--                <form action="" id="search">-->
+<!--                    <input id="searchInput" type="text" class="form-input" name="query" placeholder="Article Search"-->
+<!--                           onchange="openPage()">-->
+<!--                    <button class="btn">Search</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+    </nav>
+</div>
+
+<div class="contact-content font1 max-width-1 m-auto">
+    <div class="max-width-1 m-auto">
+<!--        <h3 >You have received an otp in your registered mobile number. Do not share this with anyone!!</h3>-->
+<!--        <form class="contact-form" method="POST" th:action="@{/OTP/{sno}(sno=${sno})}">-->
+        <form id="checkForm" class="contact-form"  action="">
+            <input style="display:none" th:value="${sno}" id="unique">
+            <input style="display:none" id="xVal">
+            <div class="form-box">
+                <input id="checkInput" required type="number" placeholder="OTP" name="OTP" onchange="check()">
+            </div>
+            <div class="form-box">
+                <a id="getOtpButton" class="btn" onclick="generate()">GET OTP</a>
+                <button id="getSubmitButton" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p class="text-footer">
+        Copyright &copy; 2021 - All rights reserved.
+    </p>
+</footer>
+
+<script>
+<!--      function openPage() {-->
+<!--  var search = document.getElementById('search');-->
+<!--  var input = document.getElementById('searchInput');-->
+<!--  if(input.value == "realme mobiles" || input.value == "realmemobiles")-->
+<!--  search.action = '/real';-->
+<!--  else if(input.value == "acer laptops" || input.value == "acerlaptops")-->
+<!--  search.action = '/acer';-->
+<!--}-->
+
+    function generate(){
+        var x = Math.floor((Math.random() *50000) + 1);
+        var xVal = document.getElementById('xVal');
+        xVal.value = x;
+        alert("OTP is "+x);
+        document.getElementById("getOtpButton").style.display = "none";
+    }
+
+    function check(){
+        var checkInput = document.getElementById('checkInput');
+        var sno = document.getElementById('unique').value;
+        var search = document.getElementById('checkForm');
+        var x = document.getElementById('xVal').value;
+
+        if(checkInput.value==x){
+            search.action = '/OTP/'+sno;
+            search.method = 'POST';
+        }
+        else{
+            document.getElementById("getOtpButton").style.display = "none";
+            alert("OTP didn't match");
+            document.getElementById("checkInput").style.display = "none";
+            document.getElementById("getSubmitButton").innerHTML = "Retry";
+            search.action = '/failed/'+sno;
+            search.method = 'GET';
+        }
+    }
+</script>
+</body>
+</html>

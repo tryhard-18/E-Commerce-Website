@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/contact.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="stylesheet" href="/css/resp.css">
+</head>
+
+<body>
+<div class="navbar">
+
+    <nav class="navigation h-nav-resp max-width-1 m-auto">
+        <div class="nav-left">
+            <a class="sixty" href="/">
+                <span style="color: greenyellow;">Flashkart</span>
+            </a>
+            <div class="fifty">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#2-section">Products</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!--java.lang.Exception: Password doesnt match-->
+
+<div class="contact-content font1 max-width-1 m-auto">
+    <div th:if="${message=='java.lang.Exception: Password doesnt match'}" class="max-width-1 m-auto">
+        <h1>Password doesn't match. Try Again!!</h1>
+    </div>
+    <div th:if="${message=='java.lang.Exception: Email already exits'}" class="max-width-1 m-auto">
+        <h1>Email already exits.</h1>
+    </div>
+    <div th:if="${message=='java.lang.Exception: Need SignUp' or message=='java.lang.Exception: Password is wrong'}" class="max-width-1 m-auto">
+        <h1>Login Failed!!</h1>
+    </div>
+</div>
+
+<footer>
+    <p class="text-footer">
+        Copyright &copy; 2021 - All rights reserved.
+    </p>
+</footer>
+
+</body>
+
+</html>
